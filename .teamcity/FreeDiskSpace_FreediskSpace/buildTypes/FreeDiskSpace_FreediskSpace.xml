@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<build-type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" uuid="0bc40e8b-bb43-4339-9231-b1158a510128" xsi:noNamespaceSchemaLocation="https://www.jetbrains.com/teamcity/schemas/2025.3/project-config.xsd">
+  <name>Pipeline Head</name>
+  <description />
+  <settings>
+    <options>
+      <option name="artifactRules" value="**" />
+      <option name="exposeAllParametersAsOutput" value="false" />
+    </options>
+    <parameters>
+      <param name="teamcity.optimization.keepOptimizationLog" value="true" />
+    </parameters>
+    <vcs-settings>
+      <vcs-entry-ref root-id="FreeDiskSpace_HttpsGithubComOllvenFreediskSpaceRefsHeadsMain" />
+    </vcs-settings>
+    <build-triggers>
+      <build-trigger id="TRIGGER_36" type="vcsTrigger">
+        <parameters>
+          <param name="branchFilter"><![CDATA[+:*
++pr:*]]></param>
+          <param name="enableQueueOptimization" value="true" />
+        </parameters>
+      </build-trigger>
+    </build-triggers>
+    <build-extensions>
+      <extension id="BUILD_EXT_19" type="commit-status-publisher">
+        <parameters>
+          <param name="github_authentication_type" value="vcsRoot" />
+          <param name="github_host" value="https://api.github.com" />
+          <param name="publisherId" value="githubStatusPublisher" />
+          <param name="vcsRootId" value="FreeDiskSpace_HttpsGithubComOllvenFreediskSpaceRefsHeadsMain" />
+        </parameters>
+      </extension>
+      <extension id="BUILD_EXT_29" type="pullRequests">
+        <parameters>
+          <param name="authenticationType" value="vcsRoot" />
+          <param name="filterAuthorRole" value="MEMBER" />
+          <param name="providerType" value="github" />
+          <param name="vcsRootId" value="FreeDiskSpace_HttpsGithubComOllvenFreediskSpaceRefsHeadsMain" />
+        </parameters>
+      </extension>
+    </build-extensions>
+    <cleanup>
+      <options>
+        <option name="preventDependenciesArtifactsFromCleanup" value="true" />
+      </options>
+    </cleanup>
+  </settings>
+</build-type>
+
