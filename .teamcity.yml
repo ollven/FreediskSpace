@@ -1,0 +1,11 @@
+jobs:
+  Job1:
+    name: Job 1
+    steps:
+      - type: script
+        script-content: ls
+    features:
+      - type: free-disk-space
+        required-space: '3'
+        fail-build: true
+    allow-reuse: false
