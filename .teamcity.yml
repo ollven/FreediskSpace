@@ -6,6 +6,6 @@ jobs:
         script-content: ls
     features:
       - type: free-disk-space
-        required-space: 4gb
+        required-space: 4096 MB
         fail-build: true
     allow-reuse: false
